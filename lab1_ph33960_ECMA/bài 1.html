@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <ul id="target"></ul>
+    <script>
+        var user = [
+
+            {
+                id: 1,
+                name: "jame smith",
+                gender: 1
+            }, {
+                id: 2,
+                name: "isla brown",
+                gender: 2
+            }, {
+                id: 3,
+                name: "amelia davies",
+                gender: 2
+            }, {
+                id: 4,
+                name: "jacob evans",
+                gender: 1
+            },
+
+
+        ];
+        var target = document.querySelector("#target");
+
+        user.forEach(function(item) {
+            var li = document.createElement("li");
+            li.textContent = "ID: " + item.id + ", Name: " + item.name + ", Gender: " + (item.gender === 1 ? "Male" : "Female");
+            target.appendChild(li);
+        });
+        console.log(user);
+    </script>
+</body>
+
+</html>

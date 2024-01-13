@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Danh sách họ và tên
+        var students = ["Nguyen Van A", "Tran Thi B", "Le Van C", "Pham Thi D"];
+
+
+        var splitNames = students.map(function(name) {
+            var parts = name.split(" ");
+            var lastName = parts.pop();
+            var firstName = parts.join(" ");
+            return {
+                firstName: firstName,
+                lastName: lastName
+            };
+        });
+        console.log(splitNames);
+
+
+        var newStudent = "Hoang Thi E";
+        var position = 2;
+        students.splice(position, 0, newStudent);
+        console.log(students);
+
+
+        var studentToRemove = "Le Van C";
+        var index = students.indexOf(studentToRemove);
+        if (index !== -1) {
+            students.splice(index, 1);
+        }
+        console.log(students);
+
+        var searchName = "A";
+        var searchResults = students.filter(function(name) {
+
+            var plainName = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            return plainName.includes(searchName.toLowerCase());
+        });
+        console.log(searchResults);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="convet">
+        <label for="input">input </label>
+        <input type="text" id="input"><br>
+        <input type="button" value="convert" onclick="convert()">
+
+    </form>
+    <p id="uotput"></p>
+    <script>
+        function convert() {
+            var input = document.querySelector("#input");
+            var output = input.replace(/[^a-zA-z0-9]/g, "")
+                .split('')
+                .map((word, index) => index == 0 ? word.toLowerCase() : word.charAt(0).toUpperCase() + word.slide(1).toLowerCase())
+                .john();
+            document.querySelector("#uotput").textContent = output;
+
+
+
+        }
+    </script>
+</body>
+
+</html>

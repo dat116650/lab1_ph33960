@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="userForm">
+        <label for="id">ID:</label><br>
+        <input type="text" id="id" name="id"><br>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="gender">Gender:</label><br>
+        <select id="gender" name="gender">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select><br>
+        <input type="button" value="Add" onclick="addUser()">
+    </form>
+    <ul id="target"></ul>
+    <script>
+        var user = [{
+            id: 1,
+            name: "jame smith",
+            gender: 1
+        }, {
+            id: 2,
+            name: "isla brown",
+            gender: 2
+        }, {
+            id: 3,
+            name: "amelia davies",
+            gender: 2
+        }, {
+            id: 4,
+            name: "jacob evans",
+            gender: 1
+        }, ];
+
+        function addUser() {
+            var id = document.getElementById("id").value;
+            var name = document.getElementById("name").value;
+            var gender = document.getElementById("gender").value;
+            user.push({
+                id: id,
+                name: name,
+                gender: parseInt(gender)
+            });
+            displayUsers();
+        }
+
+        function displayUsers() {
+            var target = document.querySelector("#target");
+            target.innerHTML = "";
+            user.forEach(function(item) {
+                var li = document.createElement("li");
+                li.textContent = "ID: " + item.id + ", Name: " + item.name + ", Gender: " + (item.gender === 1 ? "Male" : "Female");
+                target.appendChild(li);
+            });
+        }
+
+        displayUsers();
+    </script>
+</body>
+
+</html>
